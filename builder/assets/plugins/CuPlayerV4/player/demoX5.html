@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta charset="utf-8">
+<title>酷播V4.05跨平台,微信播放器,酷播免费播放器,html5播放器,h5播放器</title>
+<meta name="keywords" content="cuplayer,酷播v4,酷播V4.05跨平台,酷播免费播放器,html5播放器,h5播放器,微信播放器">
+<meta name="description" content="酷播跨平台点播范例（支持PC和手机/微信等）,微信播放器">
+<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css"/>
+<style type="text/css">
+@media only screen and (min-width : 320px) and (max-width : 768px){ body { width:100%; margin:0 auto;} div.piclist {padding:10px; height: 300px; overflow:hidden; }h3{font-size: 18px;} } 
+@media only screen and (min-width : 992px) and (max-width : 1920px){ body { width:980px; margin:0 auto;} } 
+/*PC端宽高设定*/
+#CuPlayer div.CuPc{ width:100%; height:450px;margin:0 auto; }
+/*移动端宽高设定*/
+#CuPlayer div.CuMob{ width:100%; height:400px;margin:0 auto;position: relative; }
+#CuPlayer div.CuPad{ width:100%; height:450px;margin:0 auto; }
+#CuPlayer .video-js{ width:100%; height:100%;}
+/*移动端设定*/
+video::-webkit-media-controls-enclosure { display: none !important;}
+</style>
+<script type="text/javascript" src="../../../js/jquery-3.2.1.min.js"></script>
+</head>
+<body> 
+<div class="container">
+	<!-- 酷播V4.05跨平台代码/开始 -->
+	<div class="video" id="CuPlayer">
+	<script type="text/javascript">
+	<!--
+	var vID        = "c1";                   //vID
+	var vWidth     = "100%";                  //宽度设定，配合CSS实现
+	var vHeight    = "100%";                  //高度设定，配合CSS实现
+	var vFile      = "CuSunV4set.xml";       //配置文件地址:支持五种广告设定
+	var vPlayer    = "player.swf?v=4.0";     //播放器文件地址
+	var vPic       = "pic/pic01.jpg";        //视频缩略图
+	var vCssurl    = "css/videos.min.css";   //CSS文件
+	var vAutoPlay  = "yes";                  //是否自动播放
+	var vEndTime   = 0;                      //预览时间(秒数),默认为0
+	var vLogoPath  = "images/logo.png";      //Logo地址
+	var vPlayMod   = 0;                      //播放模式优先级,默认=0,html5优先=1,flash优先=2
+	var vMp4url    = "https://cloud.video.taobao.com/play/u/10654505/p/1/e/6/t/1/50032658929.mp4";//视频文件地址推荐用mp4文件(h264编码)
+	//-->
+	</script>
+	<script class="CuPlayerVideo" data-mce-role="CuPlayerVideo" type="text/javascript" src="js/player.min.js"></script>
+	</div>
+	<!-- 酷播V4.05跨平台代码/结束 -->
+	
+	<h3><span>酷播范例（html5播放优先）</span></h3>
+	<p class="code">注意：var vPlayMod   = 1; //播放模式优先级,默认=0,html5优先=1,flash优先=2</p><br />
+	<h4>酷播V4.0版 特色功能说明：<br /><small><a href="http://www.cuplayer.com/cuplayer/help/index.html?v=c3e9c87ae8" target="_blank" style="color: #2b99ff">官方文档</a>&nbsp;&nbsp;<a href="http://www.cuplayer.com/cuplayer/download.html" target="_blank" style="color: #2b99ff">官方下载</a></small></h4>
+	<p class="line">
+	* 全面适配多平台观看视频，支持PC端、安卓端、iOS苹果端多终端跨平台观看；支持微信观看； (New)<br />
+	* 开放右键自定义：支持用户自定义右键信息和链接地址；(New)<br />
+	* 开放播放器形象LOGO图标自定义：支持用户自定义播放器控制条形象LOGO图标，增强播放器产品与用户网站形象的统一； (New)<br />
+	* 支持界面色彩自定义：支持用户自定义播放器的色彩； (New)<br />
+	* 支持流媒体RTMP协议、RTMPT协议、RTMPE协议( 全面支持SRS,red5,,FMS等流媒体的点播与直播 )，同时支持普通HTTP协议；<br />
+	* 支持6种广告功能：前置广告 / 视频广告 / 暂停广告 / 角标广告 / 后置广告 / 滚动文字广告；<br />
+	* 支持 前置广告 / 视频广告 / 暂停广告 / 角标广告 / 后置广告 随机展示，方便用户设置一组广告来随机显示；<br />
+	* 提供独创的 双重参数机制，即[ html代码参数 ] 和 [ 配置文件参数 ]，为不同的用户群，提供使用方面的便利；<br />
+	* 播放器控制条按钮增加提示信息(MoveTip)功能，为JS与AS交互提供便利；<br />
+	* 播放器控制条时间提示 (MoveTip)，鼠标移动时，动态显示当前时间，提升用户体验；<br />
+	* 视频结束提供动作选择：显示结束图片列表（支持分页） 、执行js中的getNext函数、不执行任何动作；<br />
+	* 视频框架代码优化，完美支持HTTP和RTMP；视频广告也全面支持HTTP和RTMP地址；<br />
+	* 支持视频列表连播功能，播放器采用JS与DIV+CSS结合，实现外部分列表连播功能，用户可自由扩展表现形式，图片列表/文字列表/滚动列表都可实现；<br />
+	* 支持视频预览功能(播放一小段)，指定预览时间值，预览结束，弹出收费对话或会员登录等提示信息；<br />
+	* 支持视频模式切换(比例模式)，支持视频模式初始化比例设定；<br />
+	* 提供更丰富的JS函数接口，用于更方便的处理AS与JS的交互，以及JS与AS的交互；<br />
+	* 支持视频分享，支持微博分享（新浪微博／腾讯微博／百度收藏／人人网 分享），支持分享模式控制；<br />
+	* 支持普通 / 高清视频切换；支持视频模式切换(等比模式／拉伸模式／4：3比例／16：9比例 )；<br />
+	* 支持Logo水印自定义功能，并且可以设定是否显示Logo，Logo显示位置，Logo宽度，Logo高度，Logo透明度等；<br />
+	* 支持ASP、PHP、JSP和.NET等程序语言，可以实现直接调用数据库中的各项播放器参数；<br />
+	* 支持帝国CMS、织梦CMS、PHPCMS、动易CMS、CCVMS、飞飞影视系统、苹果CMS、PHPVOD等各类程序；<br />
+	* 支持多终端跨终端视频播放 / 支持PC端、安卓android端、苹果iOS端、微信扫二维码观看视频，让复杂的跨平台视频播放，变得相当简单；<br />
+	* 支持各类浏览器：IE6/IE7/IE8/IE9/IE10/IE11/Firefox/谷哥Chrome/QQ浏览器/360浏览器。</p><br /><br />
+	<p>引入资源与代码固定格式</p>
+	<pre>&lt;!-- 酷播V4.05跨平台代码/开始 --&gt;<br />&lt;div class=&quot;video&quot; id=&quot;CuPlayer&quot;&gt;<br />&lt;script type=&quot;text/javascript&quot;&gt;<br />&lt;!--<br />&emsp;var vID        = &quot;c1&quot;;                   //vID<br />&emsp;var vWidth     = &quot;100%&quot;;                  //宽度设定，配合CSS实现<br />&emsp;var vHeight    = &quot;100%&quot;;                  //高度设定，配合CSS实现<br />&emsp;var vFile      = &quot;CuSunV4set.xml&quot;;       //配置文件地址:支持五种广告设定<br />&emsp;var vPlayer    = &quot;player.swf?v=4.0&quot;;     //播放器文件地址<br />&emsp;var vPic       = &quot;pic/pic01.jpg&quot;;        //视频缩略图<br />&emsp;var vCssurl    = &quot;css/videos.min.css&quot;;   //CSS文件<br />&emsp;var vAutoPlay  = &quot;yes&quot;;                  //是否自动播放<br />&emsp;var vEndTime   = 0;                      //预览时间(秒数),默认为0<br />&emsp;var vLogoPath  = &quot;images/logo.png&quot;;      //Logo地址<br />&emsp;var vPlayMod   = 0;                      //播放模式优先级,默认=0,html5优先=1,flash优先=2<br />&emsp;var vMp4url    = &quot;https://cloud.video.taobao.com/play/u/10654505/p/1/e/6/t/1/50032658929.mp4&quot;;//视频文件地址推荐用mp4文件(h264编码)<br />//--&gt;<br />&lt;/script&gt;<br />&lt;script class=&quot;CuPlayerVideo&quot; data-mce-role=&quot;CuPlayerVideo&quot; type=&quot;text/javascript&quot; src=&quot;js/player.min.js&quot;&gt;&lt;/script&gt;<br />&lt;/div&gt;<br />&lt;!-- 酷播V4.05跨平台代码/结束 --&gt;</pre>
+	<br /><br />
+	
+
+</div>
+
+
+
+<div style="display:none;">
+<script type="text/javascript" src="http://www.cuplayer.com/CuPlayer/js/stat.js"></script>
+</div>
+</body>
+</html>

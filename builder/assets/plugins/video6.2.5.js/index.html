@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>Video.js 6.2.5</title>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+<script src="../../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/video.min.js"></script>	
+<script src="js/videojs-playlist.js" type="text/javascript" charset="utf-8"></script>
+	<link href="css/video-js.css" rel="stylesheet">	
+	<style>
+		body{background-color: #191919; color: #fff;}
+		#example_video_1{margin: 5% auto 15px; width: 100%;}
+		.my-indent{text-indent: 2em;}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="100%" height="264"
+      poster="http://video-js.zencoder.com/oceans-clip.png"
+      data-setup="{}">
+	    <source src="../mp4/oceans.mp4" type='video/mp4' />
+	    <!--<source src="http://视频地址格式2.webm" type='video/webm' />
+	    <source src="http://视频地址格式3.ogv" type='video/ogg' />-->
+	    <!-- <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>Tracks need an ending tag thanks to IE9 -->
+	    <!-- <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>Tracks need an ending tag thanks to IE9 -->
+		</video>
+		<h5><em>Video.js</em> 是一个通用的在网页上嵌入视频播放器的 JS 库，Video.js 自动检测浏览器对 HTML5 的支持情况，如果不支持 HTML5 则自动使用 Flash 播放器。</h5>
+		<h3>使用方法：</h3>
+		<p class="my-indent">引入相关资源</p>
+		<pre>&lt;link href=&quot;video-js.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;<br />&lt;script src=&quot;video.js&quot;&gt;&lt;/script&gt;</pre>
+		<p class="my-indent">设置flash路径，Video.js会在不支持html5的浏览中使用flash播放视频文件</p>
+		<pre>&lt;script&gt;<br />&emsp;videojs.options.flash.swf = &quot;video-js.swf&quot;;<br />&lt;/script&gt;</pre>
+		<p class="my-indent">html代码 -> poster="**"播放初始图。可使用三种视频格式，根据所需要格式选择对应的。</p>
+		<pre>&lt;video id=&quot;example_video_1&quot; class=&quot;video-js vjs-default-skin&quot; controls preload=&quot;none&quot; width=&quot;640&quot; height=&quot;264&quot; poster=&quot;http://video-js.zencoder.com/oceans-clip.png&quot; data-setup=&quot;{}&quot;&gt;<br />&emsp;&lt;source src=&quot;http://视频地址格式1.mp4&quot; type=&#x27;video/mp4&#x27; /&gt;<br />&emsp;&lt;source src=&quot;http://视频地址格式2.webm&quot; type=&#x27;video/webm&#x27; /&gt;<br />&emsp;&lt;source src=&quot;http://视频地址格式3.ogv&quot; type=&#x27;video/ogg&#x27; /&gt;<br />&emsp;&lt;source&emsp;&lt;track kind=&quot;captions&quot; src=&quot;demo.captions.vtt&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;&lt;/track&gt;&lt;!-- Tracks need an ending tag thanks to IE9 --&gt;<br />&emsp;&lt;track kind=&quot;subtitles&quot; src=&quot;demo.captions.vtt&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;&lt;/track&gt;&lt;!-- Tracks need an ending tag thanks to IE9 --&gt;<br />&lt;/video&gt;</pre>
+		<p class="my-indent">js代码-自动播放</p>
+		<pre>&lt;script type=&quot;text/javascript&quot;&gt;<br />&emsp;var myPlayer = videojs(&#x27;example_video_1&#x27;);<br />&emsp;videojs(&quot;example_video_1&quot;).ready(function(){<br />&emsp;&emsp;var myPlayer = this;<br />&emsp;&emsp;myPlayer.play();<br />&emsp;});<br />&lt;/script&gt;</pre>
+		<h3>了解更多<small>请阅读官方文档</small></h3>
+		<div class="my-indent">
+			<p><a href="http://videojs.com/" target="_blank">官方文档</a></p>
+			<p><a href="http://www.jq22.com/jquery-info404" target="_blank">jq22文档-下载页面</a></p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var myPlayer = videojs('example_video_1');
+			videojs("example_video_1").ready(function(){
+			var myPlayer = this;
+			myPlayer.play();
+	  });
+	</script>
+	</div>
+
+</body>
+</html>

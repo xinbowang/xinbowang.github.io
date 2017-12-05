@@ -1,0 +1,63 @@
+[{
+	"id": 0,
+	"name": "ckplayer播放器",
+	"type": 1,
+	"src": "./assets/plugins/ckplayer/definition.html",
+	"info": "ckplayer,支持http协议下的flv,f4v,mp4,支持rtmp视频流和rtmp视频回放,支持m3u8格式,是你做视频直播,视频点播的理想播放器",
+	"typeName": "影音",
+	"img": "images/ckplayer.jpg"
+},
+{
+	"id": 1,
+	"name": "jplayer播放器",
+	"type": 1,
+	"src": "./assets/plugins/jplayer-2.9.1/examples/blue.monday/demo-02-video.htm",
+	"info": "jPlayer是一个基于jQuery的兼容所有平台所有终端的音频、视频多媒体播放器,根据浏览器自动选取HTML5和Flash播放方式。",
+	"typeName": "影音",
+	"img": "images/jplayer.jpg"
+},
+{
+	"id": 2,
+	"name": "video.js播放器",
+	"type": 1,
+	"src": "./assets/plugins/video6.2.5.js/index.html",
+	"info": "插件描述：Video.js 是一个通用的在网页上嵌入视频播放器的 JS 库，Video.js 自动检测浏览器对 HTML5 的支持情况，如果不支持 HTML5 则自动使用 Flash 播放器。（要支持ie低版本请下载5.4.3版 ）",
+	"typeName": "影音",
+	"img": "images/video.jpg"
+},
+{
+	"id": 3,
+	"name": "CuPlayerV4播放器",
+	"type": 1,
+	"src": "./assets/plugins/CuPlayerV4/player/demoX5.html",
+	"info": "酷播免费播放器,酷播云,多终端跨平台免费网页视频播放器,rtmp播放器,flv,mp4,f4v,mov,3gp播放器,带广告播放器",
+	"typeName": "影音",
+	"img": "images/kb.jpg"
+},
+{
+	"id": 4,
+	"name": "summernote编辑器",
+	"type": 2,
+	"src": "./assets/plugins/note/summernote.html",
+	"info": "Summernote是一个超级简单的WYSIWYG编辑器。它是开源的、安装调整方便。",
+	"typeName": "编辑器",
+	"img": "images/node.jpg"
+},
+{
+	"id": 5,
+	"name": "jit-yc.js",
+	"type": 3,
+	"src": "./assets/plugins/jitTest/index.html",
+	"info": "可视化工具包，用于创建网页交互式数据可视化工具。如果你想要直观的显示组织机构详情，那么可以使用这个插件。",
+	"typeName": "图谱",
+	"img": "images/jit.png"
+},
+{
+	"id": 6,
+	"name": "bootstrap响应式框架",
+	"type": 4,
+	"src": "http://v3.bootcss.com/components/",
+	"info": "简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。",
+	"typeName": "响应式框架",
+	"img": "images/bootstrap.jpg"
+}]

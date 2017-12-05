@@ -1,0 +1,111 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>Spacetree - SpaceTree with on-demand nodes</title>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+<!-- CSS Files -->
+<link type="text/css" href="./css/base.css" rel="stylesheet" />
+<link type="text/css" href="./css/Spacetree.css" rel="stylesheet" />
+
+<!--[if IE]><script language="javascript" type="text/javascript" src="../../Extras/excanvas.js"></script><![endif]-->
+<script src="../../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- JIT Library File -->
+<script language="javascript" type="text/javascript" src="./js/jit-yc.js"></script>
+<!-- Example File -->
+<script language="javascript" type="text/javascript" src="./js/index.js"></script>
+<style type="text/css">
+	#container, #center-container, #infovis, #right-container{height: 400px;}
+	#container{width: 100%;}
+	.text-indent{text-indent: 2rem;}
+	@media only screen and (min-width: 320px) and (max-width: 768px) {
+		#center-container{
+			width: 100%;
+			left: 0;
+		}
+		#infovis{
+			width: 100%;
+		}
+		#right-container{
+			width: 88px;
+			height: 134px;
+		}
+	}
+</style>
+<script>
+	$(function(){
+		init({
+			nodeHeight: 20,
+			nodeWidth : 50,
+			nodeBgColor : 'blue'
+		});
+	});
+</script>
+</head>
+
+<body>
+<div id="container">
+	<div id="center-container">
+	    <div id="infovis"></div>    
+	</div>
+	<div id="right-container">
+		<h4>改变方向</h4>
+		<table>
+		    <tr>
+		        <td>
+		            <label for="r-left">left </label>
+		        </td>
+		        <td>
+		            <input type="radio" id="r-left" name="orientation" checked="checked" value="left" />
+		        </td>
+		    </tr>
+		    <tr>
+		         <td>
+		            <label for="r-top">top </label>
+		         </td>
+		         <td>
+		            <input type="radio" id="r-top" name="orientation" value="top" />
+		         </td>
+		    <tr>
+		         <td>
+		            <label for="r-bottom">bottom </label>
+		          </td>
+		          <td>
+		            <input type="radio" id="r-bottom" name="orientation" value="bottom" />
+		          </td>
+		    </tr>
+		    <tr>
+		          <td>
+		            <label for="r-right">right </label>
+		          </td> 
+		          <td> 
+		           <input type="radio" id="r-right" name="orientation" value="right" />
+		          </td>
+		    </tr>
+		</table>
+	</div>
+	<div id="log"></div>
+</div>
+<div class="container text-left">
+	<h4>插件描述：JavaScript InfoVis工具包，用于创建网页交互式数据可视化工具。如果你想要直观的显示组织机构详情，那么可以使用这个插件。</h4>
+	<p><a href="http://philogb.github.io/jit/index.html?v=c3e9c87ae8" target="_blank">下载插件</a>&nbsp;&nbsp;&nbsp;<a href="http://philogb.github.io/jit/demos.html" target="_blank">官方demos</a>&nbsp;&nbsp;&nbsp;<a href="http://philogb.github.io/jit/static/v20/Docs/files/Core/Core-js.html" target="_blank">官方文档</a></p>
+	<h5>应用方法：</h5>
+	<p class="text-indent">引入资源</p>
+	<pre>&lt;script src=&quot;js/jquery-3.2.1.min.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;<br />&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;./js/jit-yc.js&quot;&gt;&lt;/script&gt;<br />&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;./js/index.js&quot;&gt;&lt;/script&gt;</pre>
+	<p class="alert alert-success" role="alert">如果你想提高效率，可以引入jquery加速开发-我这里应用了它</p>
+	
+	<p class="text-indent">html代码</p>
+	<pre>&lt;div id=&quot;infovis&quot;&gt;&lt;/div&gt;</pre>
+	<p class="text-indent">js代码-初始化</p>
+	<pre>$(function(){<br />&emsp;init({<br />&emsp;&emsp;nodeHeight: 20,<br />&emsp;&emsp;nodeWidth: 50,<br />&emsp;&emsp;nodeBgColor: &#x27;blue&#x27;<br />&emsp;});<br />})</pre>
+	<div class="alert alert-danger" role="alert">init({})目前只支持这三个参数：nodeWidth:节点宽度,nodeHeight:节点高度,nodeBgColor:节点背景色。后续你可以手动在index.js内部去更改或者添加自己应用时具体需要更改的对应参数即可</div>
+	<p class="text-indent">index.js内部init代码-说明</p>
+	<pre>// 声明jit.ST组织树<br />var st= new $jit.ST({});<br />// 加载json数据<br />st.loadJSON(json);<br />// 计算布局<br />st.compute();<br />// 整体渲染动画<br />st.geom.translate(new $jit.Complex(-100, 0), &quot;current&quot;);<br />// 触发根节点事件<br />st.onClick(st.root);</pre>
+	<p class="text-indent">index.js内部new $jit.ST({})代码-说明</p>
+	<pre>//渲染容器-对应html内部id<br />&#x27;injectInto&#x27;: &#x27;infovis&#x27;,<br />//展示出拓扑图的动画时间 <br />duration: 300,<br />// 运动方式<br />transition: $jit.Trans.Quart.easeInOut,<br />//设置横向节点距离 <br />levelDistance: 30,<br />//设置纵向节点距离<br />siblingOffset: 15,<br />//点击节点后下级几点展示几层<br />levelsToShow: 1,<br />//节点类型样式设置，节点类型支持扩展 <br />Node: {<br />&emsp;height: nodeHeight, //节点高度<br />&emsp;width: nodeWidth, //节点宽度<br />// 节点背景类型circle, ellipse<br />&emsp;type: &#x27;ellipse&#x27;,<br />&emsp;color: nodeBgColor, //节点背景颜色<br />&emsp;align:&quot;center&quot;, //居中<br />&emsp;overridable: true<br />},<br />Edge: {//线条类型(bezier,line,arrow,quadratic:begin,quadratic:end)样式设置<br />&emsp;type: &#x27;bezier&#x27;,<br />&emsp;lineWidth: 2, //线条宽度<br />&emsp;color:&#x27;#23A4FF&#x27;, //线条颜色<br />&emsp;overridable: true<br />},<br />//是否可以移动  <br />Navigation: {<br />&emsp;enable: true,<br />&emsp;panning: true // true/false 是否可拖拽<br />},<br />request: function(nodeId, level, onComplete) {// 异步加载数据<br />},<br />onBeforeCompute: function(node){<br />// 正在创建中...<br />&emsp;Log.write(&quot;loading &quot; + node.name);<br />},<br />onAfterCompute: function(){<br />// 创建已完成<br />&emsp;Log.write(&quot;done&quot;);<br />},<br />onCreateLabel: function(label, node){<br />&emsp;label.id = node.id;<br />&emsp;label.innerHTML = node.name;<br />&emsp;label.onclick = function(){<br />&emsp;&emsp;// 给节点添加点击事件<br />&emsp;&emsp;st.onClick(node.id);<br />&emsp;&emsp;if (fn){<br />&emsp;&emsp;&emsp;fn(node.id, node.name);<br />&emsp;&emsp;}<br />};<br />// jit支持自己的一些css样式写法<br />var style = label.style;<br />style.width = nodeWidth + &#x27;px&#x27;;<br />style.height = nodeHeight + &#x27;px&#x27;; <br />style.cursor = &#x27;pointer&#x27;;<br />style.color = &#x27;#fff&#x27;;<br />//style.backgroundColor = &#x27;#1a1a1a&#x27;;<br />style.fontSize = &#x27;0.8em&#x27;;<br />style.textAlign= &#x27;center&#x27;;<br />// 也可以应用jquery的写法label既是选中元素<br />$(label).css(&#x27;line-height&#x27;, &#x27;20px&#x27;)<br />},<br />onBeforePlotNode: function(node){<br />&emsp;if (node.selected) {<br />// 选中时，节点背景色<br />&emsp;&emsp;node.data.$color = &quot;#f60&quot;;<br />&emsp;}<br />&emsp;else {<br />&emsp;&emsp;// 清除其他背景色<br />&emsp;&emsp;delete node.data.$color;<br />&emsp;}<br />},<br />onBeforePlotLine: function(adj){<br />&emsp;if (adj.nodeFrom.selected &amp;&amp; adj.nodeTo.selected) {<br />&emsp;// 选中时连线的颜色<br />&emsp;}<br />&emsp;else {<br />&emsp;&emsp;delete adj.data.$color;<br />&emsp;&emsp;delete adj.data.$lineWidth;<br />&emsp;}<br />}</pre>
+</div>
+</body>
+</html>

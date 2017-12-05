@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>ckplayer</title>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+		<script src="../../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="ckplayer/ckplayer.js"></script>
+		<style type="text/css">
+			body{margin:0;padding:0px;font-family:"Microsoft YaHei",YaHei,"微软雅黑",SimHei,"黑体";font-size:14px}
+			@media only screen and (min-width: 320px) and (max-width: 768px) {
+				#video{
+					width: 100% !important;
+					height: auto !important;
+				}
+			}
+			#video{
+					margin: 0 auto;
+				}
+			.my-indent{
+				text-indent: 2em;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<div class="container">
+			<div id="video" style="width: 600px; height: 400px;"></div>
+			<h4>简介&nbsp;&nbsp;&nbsp;&nbsp;<small><a href="http://www.ckplayer.com/manualX/" target="_blank">文档手册</a>&nbsp;&nbsp;<a href="http://www.ckplayer.com/down/" target="_blank">下载</a></small></h4>
+			<p>ckplayer是一款在网页上播放视频的免费软件，主要特点是：免费，小巧，功能强大，定制方便。<br />
+					任何商业网站及非商业网站（包括个人，公益网站）在满足以下条件的基础上都可以免费使用：<br />
+					1：不非法修改右键版权，本条排除用户自定义的“CKKEY”<br />
+					2：不使用官方“CEKEY”来加密视频地址，本条不包含用户自己定义的“CKKEY”<br />
+					3：不使用“CVKEY”来加密PC端的flashplayer环境所使用的m3u8格式视频
+			</p>
+			<h4>应用方法</h4>
+			<p class="my-indent">引入资源</p>
+			<pre>&lt;script type=&quot;text/javascript&quot; src=&quot;ckplayer/ckplayer.js&quot;&gt;&lt;/script&gt;</pre>
+			<p class="my-indent">html代码</p>
+			<pre>&lt;div id=&quot;video&quot; style=&quot;width:600px;height:400px;&quot;&gt;&lt;/div&gt;</pre>
+			<p class="my-indent">js代码</p>
+			<pre>var videoObject = {<br />&emsp;container: &#x27;#video&#x27;, //容器的ID或className<br />&emsp;variable: &#x27;player&#x27;,//播放函数名称<br />&emsp;poster:&#x27;material/poster.jpg&#x27;,//封面图片<br />&emsp;video: [//视频地址列表形式<br />&emsp;&emsp;[&#x27;../video/oceans.mp4&#x27;, &#x27;video/mp4&#x27;, &#x27;中文标清&#x27;, 0],<br />&emsp;&emsp;[&#x27;../video/oceans.mp4&#x27;, &#x27;video/mp4&#x27;, &#x27;中文高清&#x27;, 0],<br />&emsp;&emsp;[&#x27;../video/oceans.mp4&#x27;, &#x27;video/mp4&#x27;, &#x27;英文高清&#x27;, 10],<br />&emsp;&emsp;[&#x27;../video/oceans.mp4&#x27;, &#x27;video/mp4&#x27;, &#x27;英文超清&#x27;, 0],<br />&emsp;]<br />};<br />var player = new ckplayer(videoObject);</pre>
+			<br /><br />
+		</div>
+ 		<script type="text/javascript">
+			var videoObject = {
+				container: '#video', //容器的ID或className
+				variable: 'player',//播放函数名称
+				poster:'material/poster.jpg',//封面图片
+				video: [//视频地址列表形式
+					['../mp4/oceans.mp4', 'video/mp4', '中文标清', 0],
+					['../mp4/oceans.mp4', 'video/mp4', '中文高清', 0],
+					['../mp4/oceans.mp4', 'video/mp4', '英文高清', 10],
+					['../mp4/oceans.mp4', 'video/mp4', '英文超清', 0],
+				]
+			};
+			var player = new ckplayer(videoObject);
+		</script>
+	</body>
+</html>

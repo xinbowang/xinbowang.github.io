@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<!-- Website Design By: www.happyworm.com -->
+<title>Demo : jPlayer as a video playlist player</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css"/>
+<link href="../../skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../lib/jquery.min.js"></script>
+<script type="text/javascript" src="../../dist/jplayer/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/add-on/jplayer.playlist.min.js"></script>
+<script type="text/javascript" src="../../../../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+
+	new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_1",
+		cssSelectorAncestor: "#jp_container_1"
+	}, [
+		{
+			title:"Big Buck Bunny Trailer",
+			artist:"Blender Foundation",
+			free:true,
+			m4v: "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
+			ogv: "http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv",
+			webmv: "http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm",
+			poster:"http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
+		},
+		{
+			title:"Finding Nemo Teaser",
+			artist:"Pixar",
+			m4v: "http://www.jplayer.org/video/m4v/Finding_Nemo_Teaser.m4v",
+			ogv: "http://www.jplayer.org/video/ogv/Finding_Nemo_Teaser.ogv",
+			webmv: "http://www.jplayer.org/video/webm/Finding_Nemo_Teaser.webm",
+			poster: "http://www.jplayer.org/video/poster/Finding_Nemo_Teaser_640x352.png"
+		},
+		{
+			title:"Incredibles Teaser",
+			artist:"Pixar",
+			m4v: "http://www.jplayer.org/video/m4v/Incredibles_Teaser.m4v",
+			ogv: "http://www.jplayer.org/video/ogv/Incredibles_Teaser.ogv",
+			webmv: "http://www.jplayer.org/video/webm/Incredibles_Teaser.webm",
+			poster: "http://www.jplayer.org/video/poster/Incredibles_Teaser_640x272.png"
+		}
+	], {
+		swfPath: "../../dist/jplayer",
+		supplied: "webmv, ogv, m4v",
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: false,
+		keyEnabled: true,
+		autohide: {
+			full: true // 播放时隐藏
+		},
+		size: {
+			width: '100%',
+			cssClass: 'jj' //自定义类名 ： 增加到.jp-video-270p上面
+		}
+	});
+});
+//]]>
+</script>
+<style type="text/css">
+	video::-webkit-media-controls-enclosure {
+    /*禁用播放器控制栏的样式*/
+    display: none !important;
+}
+</style>
+</head>
+<style type="text/css">
+	@media only screen and (min-width: 320px) and (max-width: 768px) {
+		.jj{width: 100%;}
+		.jp-controls-holder{width: 100%; padding-top: 10px;}
+		.jp-video .jp-type-playlist .jp-controls{margin-left: 10px;}
+		/*.jp-state-no-volume .jp-volume-controls{display: block;}*/
+	}
+	.jianjie{
+		line-height: 24px;
+	}
+	.my-indent{
+		text-indent: 2em;
+	}
+</style>
+<body>
+	<div class="container">
+		<div id="jp_container_1" class="jp-video jp-video-270p" role="application" aria-label="media player">
+			<div class="jp-type-playlist">
+				<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+				<div class="jp-gui">
+					<div class="jp-video-play">
+						<button class="jp-video-play-icon" role="button" tabindex="0">play</button>
+					</div>
+					<div class="jp-interface">
+						<div class="jp-progress">
+							<div class="jp-seek-bar">
+								<div class="jp-play-bar"></div>
+							</div>
+						</div>
+						<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+						<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+						<div class="jp-controls-holder">
+							<div class="jp-controls">
+								<button class="jp-previous" role="button" tabindex="0">previous</button>
+								<button class="jp-play" role="button" tabindex="0">play</button>
+								<button class="jp-next" role="button" tabindex="0">next</button>
+								<button class="jp-stop" role="button" tabindex="0">stop</button>
+							</div>
+							<div class="jp-volume-controls">
+								<button class="jp-mute" role="button" tabindex="0">mute</button>
+								<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+								<div class="jp-volume-bar">
+									<div class="jp-volume-bar-value"></div>
+								</div>
+							</div>
+							<div class="jp-toggles">
+								<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+								<button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
+								<button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+							</div>
+						</div>
+						<div class="jp-details">
+							<div class="jp-title" aria-label="title">&nbsp;</div>
+						</div>
+					</div>
+				</div>
+				<div class="jp-playlist">
+					<ul>
+						<!-- The method Playlist.displayPlaylist() uses this unordered list -->
+						<li>&nbsp;</li>
+					</ul>
+				</div>
+				<div class="jp-no-solution">
+					<span>Update Required</span>
+					To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+				</div>
+			</div>
+		</div><br />
+		<h4><b>介绍</b> <small><a href="http://www.jplayer.cn/developer-guide.html" target="_blank">中文文档</a></small>&nbsp;&nbsp;&nbsp;<small><a href="http://www.jplayer.cn/download.html" target="_blank">下载</a></small></h4>
+		<h5 class="jianjie">jPlayer是完全自由和开放源码（MIT）用JavaScript编写的媒体库。一个jQuery的插件，（而现在的Zepto插件，） jPlayer可以让你快速编织跨平台的音频和视频到您的网页。jPlayer的全面的API允许你创建创新媒体解决方案。</h5>
+		<p><b>引入相关资源</b></p>
+		<pre>&lt;script type=&quot;text/javascript&quot; src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; src=&quot;/jPlayer/js/jquery.jplayer.min.js&quot;&gt;&lt;/script&gt;</pre>
+		<p><b>Jplayer.swf</b> -> 不支持HTML5 &lt;video&gt; 和 &lt;audio&gt;的浏览器中使用了这个文件。</p>
+		<p class="my-indent">jPlayer.swf文件必须上传到你的服务器上。默认的位置是在一个相对当前页面名为"js"的文件夹中。 要修改这个flash文件的位置要使用构造函数配置swfPath。 下面是如何设置相对服务器根目录的swfPath路径。</p>
+		<pre>$(&quot;#jpId&quot;).jPlayer( {<br />&emsp;swfPath:&quot;/scripts/jPlayer&quot;<br />});</pre>
+		<p>jPlayerPlaylist获得<b>播放列表</b>相关的插件帮助。引入资源</p>
+		<pre>&lt;script type=&quot;text/javascript&quot; src=&quot;../../dist/add-on/jplayer.playlist.min.js&quot;&gt;&lt;/script&gt;</pre>
+		<h5>html代码</h5>
+		<pre>&lt;div id=&quot;jp_container_1&quot; class=&quot;jp-video jp-video-270p&quot; role=&quot;application&quot; aria-label=&quot;media player&quot;&gt;<br />&emsp;&lt;div class=&quot;jp-type-playlist&quot;&gt;<br />&emsp;&emsp;&lt;div id=&quot;jquery_jplayer_1&quot; class=&quot;jp-jplayer&quot;&gt;&lt;/div&gt;<br />&emsp;&emsp;&lt;div class=&quot;jp-gui&quot;&gt;<br />&emsp;&emsp;&emsp;&lt;div class=&quot;jp-video-play&quot;&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;button class=&quot;jp-video-play-icon&quot; role=&quot;button&quot; tabindex=&quot;0&quot;&gt;play&lt;/button&gt;<br />&emsp;&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&lt;div class=&quot;jp-interface&quot;&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-progress&quot;&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-seek-bar&quot;&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-play-bar&quot;&gt;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-current-time&quot; role=&quot;timer&quot; aria-label=&quot;time&quot;&gt;&amp;nbsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-duration&quot; role=&quot;timer&quot; aria-label=&quot;duration&quot;&gt;&amp;nbsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-controls-holder&quot;&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-controls&quot;&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;button class=&quot;jp-previous&quot; role=&quot;button&quot; tabindex=&quot;0&quot;&gt;previous&lt;/button&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;button class=&quot;jp-play&quot; role=&quot;button&quot; tabindex=&quot;0&quot;&gt;play&lt;/button&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;button class=&quot;jp-next&quot; role=&quot;button&quot; tabindex=&quot;0&quot;&gt;next&lt;/button&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;button class=&quot;jp-stop&quot; role=&quot;button&quot; tabindex=&quot;0&quot;&gt;stop&lt;/button&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-volume-controls&quot;&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;button class=&quot;jp-mute&quot; role=&quot;button&quot; tabindex=&quot;0&quot;&gt;mute&lt;/button&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;button class=&quot;jp-volume-max&quot; role=&quot;button&quot; tabindex=&quot;0&quot;&gt;max volume&lt;/button&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-volume-bar&quot;&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-volume-bar-value&quot;&gt;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-toggles&quot;&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;button class=&quot;jp-repeat&quot; role=&quot;button&quot; tabindex=&quot;0&quot;&gt;repeat&lt;/button&gt;<br />&emsp;&emsp;&emsp;&emsp;&emsp;&lt;button class=&quot;jp-shuffle&quot; role=&quot;button&quot; tabindex=&quot;0&quot;&gt;shuffle&lt;/button&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;button class=&quot;jp-full-screen&quot; role=&quot;button&quot; tabindex=&quot;0&quot;&gt;full screen&lt;/button&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&lt;div class=&quot;jp-details&quot;&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;div class=&quot;jp-title&quot; aria-label=&quot;title&quot;&gt;&amp;nbsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&lt;div class=&quot;jp-playlist&quot;&gt;<br />&emsp;&emsp;&emsp;&lt;ul&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;!-- The method Playlist.displayPlaylist() uses this unordered list动态生成播放列表 --&gt;<br />&emsp;&emsp;&emsp;&emsp;&lt;li&gt;&amp;nbsp;&lt;/li&gt;<br />&emsp;&emsp;&emsp;&lt;/ul&gt;<br />&emsp;&emsp;&lt;/div&gt;<br />&emsp;&emsp;&lt;/div&gt;<br />&emsp;&lt;/div&gt;</pre>
+	
+	<p>js代码</p>
+	<pre>$(document).ready(function(){<br />&emsp;new jPlayerPlaylist({// 播放列表<br />&emsp;&emsp;jPlayer: &quot;#jquery_jplayer_1&quot;,<br />&emsp;&emsp;cssSelectorAncestor:&quot;#jp_container_1&quot;<br />&emsp;}, [<br />&emsp;&emsp;{<br />&emsp;&emsp;&emsp;title:&quot;Big Buck Bunny Trailer&quot;,<br />&emsp;&emsp;&emsp;artist:&quot;Blender Foundation&quot;,<br />&emsp;&emsp;&emsp;free:true,<br />&emsp;&emsp;&emsp;m4v: &quot;http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v&quot;,<br />&emsp;&emsp;&emsp;ogv: &quot;http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv&quot;,<br />&emsp;&emsp;&emsp;webmv: &quot;http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm&quot;,<br />&emsp;&emsp;&emsp;poster:&quot;http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png&quot;<br />&emsp;&emsp;}<br />&emsp;], {<br />&emsp;&emsp;swfPath: &quot;../../dist/jplayer&quot;,// flash路径<br />&emsp;&emsp;supplied: &quot;webmv, ogv, m4v&quot;,// 视频格式<br />&emsp;&emsp;useStateClassSkin: true,<br />&emsp;&emsp;autoBlur: false,<br />&emsp;&emsp;smoothPlayBar: false,<br />&emsp;&emsp;keyEnabled: true,// 键盘控制<br />&emsp;&emsp;autohide: {<br />&emsp;&emsp;&emsp;full: true // 播放时隐藏<br />&emsp;&emsp;},<br />&emsp;&emsp;size: { // 播放器宽高<br />&emsp;&emsp;&emsp;width: &#x27;100%&#x27;,<br />&emsp;&emsp;&emsp;cssClass: &#x27;jj&#x27; //自定义类名(css样式) ： 增加到.jp-video-270p上面<br />&emsp;&emsp;}<br />&emsp;});<br />});</pre>
+	<br /><br /><br /><br /><br /><br /><br />
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" href="dist/bootstrap.min.css">
+	<link href="dist/summernote.css" rel="stylesheet"/>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="dist/summernote.js"></script>
+	<script src="dist/lang/summernote-zh-CN.js"></script>    <!-- 中文-->
+	<title>Document</title>
+	<style type="text/css">
+		.note-toolbar{position: absolute; left: 0; top: 0; width: 100%;}
+		.note-group-select-from-files{position: relative; padding-bottom: 25px;}
+		.note-image-input{opacity: 0; position: absolute; z-index: 1;}
+		.uploadImg{position: absolute; left: 0; top: 25px;}
+		@media only screen and (min-width: 320px) and (max-width: 768px) {
+			/*.note-toolbar{position: absolute;
+		    left: 4%;
+    		top: 82px;
+		    z-index: 999;
+		    width: 92%;}*/
+		   .note-toolbar{position: absolute;
+		    left: 0;
+    		top: 0;
+		    z-index: 999;
+		    width: 100%;}
+			.panel-heading>div{display: table;}
+			.note-popover .popover-content .note-para .dropdown-menu, .panel-heading.note-toolbar .note-para .dropdown-menu{min-width: 150px; max-height: 200px; overflow-y: auto;}
+			.note-popover .popover-content .note-color .dropdown-menu, .panel-heading.note-toolbar .note-color .dropdown-menu {min-width: 175px;}
+			.note-popover .popover-content .note-color .dropdown-menu, .panel-heading.note-toolbar .note-color .dropdown-menu li>div:nth-of-type(2){
+				margin-left: 5px;}
+		}
+		.my-indent{
+			text-indent: 2em;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h3>演示操作 - <small><a href="https://summernote.org/" target="_blank">官方文档</a>&nbsp;&nbsp;<a href="https://summernote.org/getting-started/" target="_blank">下载插件</a></small></h3>
+		<!-- 容器 -->
+		<div class="summernote" ></div>
+		<!-- 按钮 -->
+		<button id="edit" class="btn btn-primary" onclick="edit()" type="button">编 辑</button>
+		<button id="save" class="btn btn-primary" onclick="save()" type="button">保 存</button>
+		<br />
+		<h4>应用方法</h4>
+		<p>引入必要文件</p>
+		<pre>&lt;link rel=&quot;stylesheet&quot; href=&quot;dist/bootstrap.min.css&quot;&gt;<br />&lt;link href=&quot;dist/summernote.css&quot; /&gt;<br />&lt;script src=&quot;js/jquery-3.2.1.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script src=&quot;js/bootstrap.min.js&quot;>&lt;/script&gt;<br />&lt;script src=&quot;dist/summernote.js&quot;&gt;&lt;/script&gt;<br />&lt;script src=&quot;dist/lang/summernote-zh-CN.js&quot;&gt;&lt;/script&gt;
+		</pre>
+		<p>html代码如下：</p>
+		<pre>&lt;div class=&quot;summernote&quot; &gt;&lt;/div&gt;<br />&lt;button id=&quot;edit&quot; class=&quot;btn btn-primary&quot; onclick=&quot;edit()&quot; type="button"&gt;编 辑&lt;/button&gt;<br />&lt;button id=&quot;save&quot; class=&quot;btn btn-primary&quot; onclick=&quot;save()&quot; type=&quot;button&quot;&gt;保 存&lt;/button&gt;
+		</pre>
+		<p>js代码如下：</p>
+		<p class="my-indent">初始化编辑器</p>
+		<pre>var edit = function() {<br />&emsp;$(&#x27;.summernote&#x27;).summernote({//初始化编辑器<br />&emsp;&emsp;// 导航上显示按钮操作<br />&emsp;&emsp;toolbar: [//编辑器按钮（支持的操作）<br />&emsp;&emsp;// [groupName, [list of button]]<br />&emsp;&emsp;[&#x27;style&#x27;, [&#x27;bold&#x27;, &#x27;italic&#x27;, &#x27;underline&#x27;, &#x27;strikethrough&#x27;]],<br />&emsp;&emsp;//[&#x27;font&#x27;,[&#x27;fontsize&#x27;,&#x27;color&#x27;]],<br />&emsp;&emsp;[&#x27;para&#x27;, [&#x27;ul&#x27;, &#x27;ol&#x27;, &#x27;paragraph&#x27;,&#x27;height&#x27;, &#x27;style&#x27;]],<br />&emsp;&emsp;[&#x27;insert&#x27;,[&#x27;picture&#x27;,&#x27;link&#x27;,&#x27;hr&#x27;]],<br />&emsp;&emsp;[&#x27;font&#x27;, [&#x27;fontsize&#x27;,&#x27;color&#x27;]],<br />&emsp;&emsp;[&#x27;mybutton&#x27;, [&#x27;clearButton&#x27;]]// 自定义按钮添加到导航<br />&emsp;&emsp;],<br />&emsp;&emsp;buttons: {// 自定义按钮绑定<br />&emsp;&emsp;&emsp;clearButton: clearButton<br />&emsp;&emsp;},<br />&emsp;&emsp;height: 80, // 书写高度<br />&emsp;&emsp;tabsize: 5,<br />&emsp;&emsp;// toolbar: false, // 是否显示toolbar<br />&emsp;&emsp;lang: &#x27;zh-CN&#x27;, // 提示语言(依赖summernote-zh-CN.js)<br />&emsp;&emsp;focus: true, // 文本获取焦点<br />&emsp;&emsp;disableDragAndDrop: true, // 禁止拖拽文件<br />&emsp;&emsp;shortcuts: false, // 禁用快捷键<br />&emsp;&emsp;// airMode: true // 选中时显示toolbar-移动端false<br />&emsp;&emsp;callbacks: {<br />&emsp;&emsp;&emsp;// 返回事件<br />&emsp;&emsp;&emsp;//onImageUpload: function(files) {<br />&emsp;&emsp;&emsp;// upload image to server and create imgNode...<br />&emsp;&emsp;&emsp;// $summernote.summernote(&#x27;insertNode&#x27;, imgNode);<br />&emsp;&emsp;&emsp;//console.log(files);<br />&emsp;&emsp;&emsp;//}<br />&emsp;&emsp;}<br />});</pre>
+		<p class="my-indent">支持自定义按钮</p>
+		<pre>//支持自定义按钮：清空容器按钮<br /> var clearButton = function (context) {<br />&emsp;var ui = $.summernote.ui;&emsp;// create button&emsp;&emsp;var button = ui.button({<br />&emsp;&emsp;// 按钮名称图标<br />&emsp;&emsp;contents: &#x27;&lt;i class=&quot;note-icon-eraser&quot;/&gt; 清空所有&#x27;,<br />&emsp;&emsp;tooltip: &#x27;清空&#x27;,<br />&emsp;&emsp;// 触发事件：执行操作<br />&emsp;&emsp;click: function () {<br />&emsp;&emsp;&emsp;&emsp;// invoke insertText method with &#x27;hello&#x27; on editor module.<br />&emsp;&emsp;&emsp;&emsp;context.invoke(&#x27;reset&#x27;);<br />&emsp;&emsp;&emsp;&emsp;$(&#x27;.tooltip&#x27;).remove();<br />&emsp;&emsp;}<br />&emsp;});<br />&emsp;return button.render();   // return button as jquery object<br />}
+		</pre>
+		<p class="my-indent">保存代码</p>
+		<pre>// 保存代码<br />var save = function() {<br />&emsp;var markup = $(&#x27;.summernote&#x27;).summernote(&#x27;code&#x27;);<br />&emsp;$(&#x27;.summernote&#x27;).summernote(&#x27;destroy&#x27;);<br />};
+		</pre>
+		<h3>官方文档</h3>
+		<p><a href="https://summernote.org/" target="_blank">https://summernote.org/</a></p>
+		<br /><br />
+	</div>
+	<script type="text/javascript">
+		// 自定义：清空容器按钮
+		var clearButton = function (context) {
+		  var ui = $.summernote.ui;
+		  // create button
+		  var button = ui.button({
+		  	// 按钮名称图标
+		    contents: '<i class="note-icon-eraser"/> 清空所有',
+		    tooltip: '清空',
+		    // 触发事件：执行操作
+		    click: function () {
+		      // invoke insertText method with 'hello' on editor module.
+		      context.invoke('reset');
+		      $('.tooltip').remove();
+		    }
+		  });
+		  return button.render();   // return button as jquery object
+		}
+		// 编辑。。。。
+		var edit = function() {
+		  $('.summernote').summernote({
+		  	// 导航上显示按钮操作
+		  	toolbar: [
+			    // [groupName, [list of button]]
+			    ['style', ['bold', 'italic', 'underline', 'strikethrough']],
+			    //['font', ['fontsize','color']],
+			    ['para', ['ul', 'ol', 'paragraph','height', 'style']],
+			    ['insert',['picture','link','hr']],
+			    ['font', ['fontsize','color']],
+			    ['mybutton', ['clearButton']]
+			  ],
+			  buttons: {
+			  	//
+			    clearButton: clearButton
+			  },
+		    height: 80, // 书写高度
+		    tabsize: 5,
+		    // toolbar: false, // 是否显示toolbar
+		    lang: 'zh-CN', // 提示语言
+		    focus: true, // 文本获取焦点
+		    disableDragAndDrop: true, // 禁止拖拽文件
+		    shortcuts: false, // 禁用快捷键
+		    // airMode: true // 选中时显示toolbar-移动端false
+		    callbacks: {
+		    	// 返回事件
+			    //onImageUpload: function(files) {
+			      // upload image to server and create imgNode...
+			      // $summernote.summernote('insertNode', imgNode);
+			      //console.log(files);
+			    //}
+			  }
+			});
+			var $btn = $('<input type="button" class="btn btn-primary uploadImg" value="上传图片" >');
+			$('.note-group-select-from-files').append($btn);
+			var marginTop = $('.note-toolbar').outerHeight();
+			$('.note-editable').css('margin-top', marginTop);
+		};
+		// 保存代码
+		var save = function() {
+		  var markup = $('.summernote').summernote('code');
+		  $('.summernote').summernote('destroy');
+		};
+	</script>
+</body>
+<!-- <script type="text/javascript">
+	// 更改父级页面高度
+	function childHeight(){
+		var h = $('body').height() + 150;
+		$('#iframeLoad', window.parent.document).height(h);
+	}
+	$(function(){
+		childHeight();
+		// 动态修改iframe高度
+		$(window).resize(function(){
+			childHeight();
+		})
+	})
+</script> -->
+</html>
