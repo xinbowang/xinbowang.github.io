@@ -46,9 +46,27 @@ a:visited{text-decoration: none;}
 .my-4 {
   background: #fb6d19 !important; }
 
+body, html {
+  height: 100%;
+  overflow: hidden; }
+
+.my-navbar {
+  margin-bottom: 0; }
+
 /* container */
 .my-container {
-  padding: 0 0 0 0; }
+  padding: 0 0 0 0;
+  padding-top: 51px;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-y: auto; }
+  .my-container:after {
+    content: '';
+    display: none !important; }
+  .my-container:before {
+    content: '';
+    display: none !important; }
   .my-container .my-plugins {
     -webkit-box-shadow: 0 0 5px 0 #ccc;
             box-shadow: 0 0 5px 0 #ccc;

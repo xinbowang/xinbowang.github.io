@@ -60,4 +60,13 @@
 	"info": "简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。",
 	"typeName": "响应式框架",
 	"img": "images/bootstrap.jpg"
+},
+{
+	"id": 7,
+	"name": "基于bootstrap响应式框架下组件",
+	"type": 4,
+	"src": "./assets/plugins/components/index.html",
+	"info": "bootstrap组件整理，让web开发更迅速、简单。",
+	"typeName": "响应式组件",
+	"img": "images/components.jpg"
 }]

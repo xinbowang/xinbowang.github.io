@@ -53,6 +53,7 @@
 	 	影音： 1
 	 	编辑器: 2
 	 	图谱： 3
+	 	bootstrap组件： 4
 	 	 
 	 */
 
@@ -70,13 +71,13 @@
 				"type": 1,
 				"name": "影音"
 			},
-			"chart": {
-				"type": 2,
-				"name": "图谱"
-			},
 			"note": {
-				"type": 3,
+				"type": 2,
 				"name": "编辑器"
+			},
+			"chart": {
+				"type": 3,
+				"name": "图谱"
 			},
 			"frames": {
 				"type": 4,
@@ -97,11 +98,11 @@
 	  })*/
 			// 遍历返回数据
 		};function content(data) {
-			var str = '';
+			var str = '<div class="container" style="padding: 10px 0 30px">';
 			data.map(function (ele, i) {
 				str += "<div class=\"col-lg-4 col-md-3 col-sm-4\">\n\t\t\t\t\t\t<div class=\"my-plugins\">\n\t\t\t\t\t\t\t<div class=\"my-images my-" + ele.type + "\"><a class=\"hrefIframe\" href=\"#" + ele.src + "\"><img src=\"" + ele.img + "\"></a></div>\n\t\t\t\t\t\t\t<div class=\"my-introduce\">\n\t\t\t\t\t\t\t\t<p class=\"my-title\">\n\t\t\t\t\t\t\t\t\t<a class=\"hrefIframe\" href=\"#" + ele.src + "\">" + ele.name + "</a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t<p class=\"my-info\">" + ele.info + "</p>\n\t\t\t\t\t\t\t\t<p class=\"my-classification\">\n\t\t\t\t\t\t\t\t\t<i class=\"glyphicon glyphicon-list\"></i>\n\t\t\t\t\t\t\t\t\t" + ele.typeName + "\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>";
 			});
-			return str;
+			return str + '</div>';
 		}
 		// 创建导航
 		createNav();
@@ -111,6 +112,27 @@
 				$('.my-nav').append(nav);
 			}
 		}
+		// 导航点击关闭事件
+		var win = 0;
+		function wins() {
+			win = $(window).width();
+			if (win < 768) {
+				$('.my-nav').on('click', 'li', function (event) {
+					hides();
+				});
+				$('.my-index').click(function () {
+					hides();
+				});
+			}
+		}
+		wins();
+		$(window).resize(function () {
+			wins();
+		});
+		function hides() {
+			$('#bs-example-navbar-collapse-1').removeClass('in').attr('aria-expanded', false).css('height', 1);
+		}
+
 		// 给导航添加属性
 		/*$('.my-nav li').map((i, ele) => {
 	 	var type = $(ele).find('a').attr('href').substr(1);
@@ -162,12 +184,14 @@
 								}
 							}
 						});
+
 						// 创建iframe添加到my-container中;
-						var $iframe = $('<iframe width="100%" height="100%" id="iframeLoad" frameborder="0" scrolling="yes" ></iframe>');
-						$('.my-container').html('').append($iframe);
+						var $div = $('<div id="iframeLoads"><iframe width="100%" id="iframeLoad" frameborder="0" style="float: left;" scrolling="yes" ></iframe><div/>');
+						$('.my-container').html('').append($div);
 						$('#iframeLoad').attr('src', hash);
 						var $winHeight = $(window).height();
-						$('#iframeLoad').height($winHeight - $('.navbar-inverse').outerHeight() - 40);
+						$('#iframeLoad, #iframeLoads').height($winHeight - $('.navbar-inverse').outerHeight());
+						$('#iframeLoads').css('overflow', 'hidden');
 						return; // 终止后续执行;
 					}
 					if (!init[hash]) {
