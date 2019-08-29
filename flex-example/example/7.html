@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>骰子</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		html, body {
+			height: 100%;
+		}
+		.flex {
+			display: flex;
+		}
+		.align-center {
+			align-items: center;
+		}
+		.justify-center {
+			justify-content: center;
+		}
+		.flex-wrap {
+			flex-wrap: wrap;
+		}
+		.flex-direction {
+			flex-direction: column;
+		}
+		.container {
+			min-height: 100%;
+			background: rgba(16, 142, 233, .3);
+		}
+		.nine {
+			width: 500px;
+			height: 500px;
+			background: rgba(16, 142, 233, .1);
+		}
+		.nine div {
+			/*width: 33.33%;*/
+			position: relative;
+			flex: 1;
+			padding-bottom: 33.33%;
+			border: 1px solid rgba(16, 142, 233, 1);
+			background: #f30;
+			box-sizing: border-box;
+			font-size: 30px;
+			color: #fff;
+		}
+		.position {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+		}
+		.nine div:nth-of-type(1) {
+			align-self: flex-start;
+		}
+		.nine div:nth-of-type(2) {
+			align-self: center;
+		}
+		.nine div:nth-of-type(3) {
+			align-self: flex-end;
+		}
+	</style>
+</head>
+<body>
+	<section class="container flex align-center justify-center">
+		<div class="nine flex flex-wrap">
+			<div class="flex justify-center align-center">
+				<span class="position">1</span>
+			</div>
+			<div class="flex justify-center align-center">
+				<span class="position">2</span>
+			</div>
+			<div class="flex justify-center align-center">
+				<span class="position">3</span>
+			</div>
+			<!-- <div class="flex justify-center align-center">4</div> -->
+		</div>
+	</section>
+</body>
+</html>

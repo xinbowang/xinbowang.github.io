@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>骰子</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		html, body {
+			height: 100%;
+		}
+		.flex {
+			display: flex;
+		}
+		.align-center {
+			align-items: center;
+		}
+		.justify-center {
+			justify-content: center;
+		}
+		.flex-wrap {
+			flex-wrap: wrap;
+		}
+		/*.flex-flow {
+			flex-flow: column wrap;
+		}*/
+		.flex-direction {
+			flex-direction: column;
+		}
+		.container {
+			min-height: 100%;
+			background: rgba(16, 142, 233, .3);
+		}
+		.nine {
+			width: 500px;
+			height: 500px;
+			background: rgba(16, 142, 233, .1);
+		}
+		.nine div {
+			/*width: 33.33%;*/
+			flex: 0 0 33.33%;
+			border: 1px solid rgba(16, 142, 233, 1);
+			background: #f30;
+			box-sizing: border-box;
+			font-size: 30px;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<section class="container flex align-center justify-center">
+		<div class="nine flex flex-wrap flex-direction">
+			<div class="flex justify-center align-center">1</div>
+			<div class="flex justify-center align-center">2</div>
+			<div class="flex justify-center align-center">3</div>
+			<div class="flex justify-center align-center">4</div>
+			<div class="flex justify-center align-center">5</div>
+			<div class="flex justify-center align-center">6</div>
+			<div class="flex justify-center align-center">7</div>
+		</div>
+	</section>
+</body>
+</html>

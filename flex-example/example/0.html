@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>骰子</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		html, body {
+			height: 100%;
+		}
+		.flex {
+			display: flex;
+		}
+		.align-center {
+			align-items: center;
+		}
+		.align-content-center {
+			align-content: center;
+		}
+		.justify-center {
+			justify-content: center;
+		}
+		.flex-wrap {
+			flex-wrap: wrap;
+		}
+		.flex-direction-column {
+			flex-direction: column;
+		}
+		.justify-around {
+			justify-content: space-around;
+		}
+		.justify-between {
+			justify-content: space-between;
+		}
+		.container {
+			min-height: 100%;
+			background: rgba(16, 142, 233, .2);
+		}
+		.nine {
+			width: 500px;
+			margin-bottom: 10px;
+			background: rgba(16, 142, 233, .1);
+		}
+		.nine div {
+			width: 20%;
+			height: 166px;
+			border: 1px solid rgba(16, 142, 233, 1);
+			background: #f30;
+			box-sizing: border-box;
+		}
+		.nine2 {
+			height: 500px;
+		}
+		.nine2 div{
+			width: 33.33%;
+		}
+	</style>
+</head>
+<body>
+	<section class="container flex flex-direction-column align-center justify-center">
+		<div class="nine flex justify-around">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="nine flex justify-between">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="nine nine2 flex flex-wrap align-content-center">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</section>
+</body>
+</html>

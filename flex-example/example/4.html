@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>头固定+左右布局</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.container {
+			height: 100vh;
+		}
+		.flex {
+			display: flex;
+		}
+		.flex-direction {
+			flex-direction: column;
+		}
+		header {
+			height: 50px;
+			background: rgba(16, 142, 233, .5);
+		}
+		footer {
+			height: 50px;
+			background: rgba(16, 142, 233, .5);
+		}
+		.main {
+			flex: 1;
+		}
+		.aside {
+	    flex: 0 0 200px;
+			background: rgba(16, 142, 233, 1);
+		}
+		.right {
+			flex: 1;
+		}
+		.content {
+			flex: 1;
+			background: rgba(16, 142, 233, .7);
+		}
+		
+	</style>
+</head>
+<body>
+	<section class="container flex flex-direction">
+		<header></header>
+		<section class="main flex">
+			<aside class="aside"></aside>
+			<section class="flex flex-direction right">
+				<div class="content"></div>
+				<footer></footer>
+			</section>
+		</section>
+	</section>
+</body>
+</html>

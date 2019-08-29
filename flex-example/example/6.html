@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>九宫格布局+居中</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.flex {
+			display: flex;
+		}
+		.align-center {
+			align-items: center;
+		}
+		.justify-center {
+			justify-content: center;
+		}
+		.flex-wrap {
+			flex-wrap: wrap;
+		}
+		.container {
+			height: 100vh;
+			background: rgba(16, 142, 233, .3);
+		}
+		.nine {
+			width: 500px;
+			height: 300px;
+			background: rgba(16, 142, 233, .5);
+		}
+		.nine div {
+			/*width: 33.33%;*/
+			flex: 0 0 33.33%;
+			border: 1px solid rgba(16, 142, 233, 1);
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<section class="container flex align-center justify-center">
+		<div class="nine flex flex-wrap">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</section>
+</body>
+</html>

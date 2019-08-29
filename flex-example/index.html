@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		h1, h2, h3, h4 {
+			padding: 5px 0;
+		}
+		ul, li {
+			list-style: none;
+			margin: 0;
+			line-height: 22px;
+		}
+		p {
+			font-size: 14px;
+			color: #333;
+			line-height: 22px;
+		}
+		a {
+			text-decoration: none;
+			color: #333;
+		}
+		.container {
+			padding: 30px 10% 40px;
+		}
+		.flex {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.info {
+			width: 25%;
+			padding: 10px;
+			box-sizing: border-box;
+			text-align: center;
+		}
+		.info p {
+			color: #2196f3;
+		}
+		.info:hover p {
+			color: #f30;
+		}
+		.info img {
+			width: 100%;
+			display: block;
+		}
+	</style>
+	<title>flex-示例</title>
+</head>
+<body>
+	<section class="container">
+		<h3>布局实例</h3>
+	<ul id="list" class="flex"></ul>
+	</section>
+</body>
+<script type="text/javascript">
+	window.onload = function () {
+		var $list = document.querySelector('#list');
+		var listArr = [
+			'0-基本属性',
+			'1-头底固定布局',
+			'2-头底固定+sider布局',
+		  '3-头底固定+左中右布局',
+			'4-头固定+左右布局',
+			'5-左右布局',
+			'6-九宫格布局+居中',
+			'7-骰子',
+			'8-特殊布局'
+		];
+		var $li = '';
+		for (var i = 0, len = listArr.length; i < len; i++) {
+			$li += `<li class="info">
+								<a class="link" href="./example/${i}.html" target="_blank">
+									<img src="./img/${i}.png"/>
+									<p>${listArr[i]}</p>
+								</a>
+							</li>`
+		}
+		$list.innerHTML = $li;
+	}
+</script>
+</html>

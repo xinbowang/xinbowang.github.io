@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>头底固定+sider布局</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		html, body {
+			height: 100%;
+		}
+		.container {
+			min-height: 100%;
+		}
+		.flex {
+			display: flex;
+		}
+		.flex-direction {
+			flex-direction: column;
+		}
+		header, footer {
+			height: 50px;
+			background: rgba(16, 142, 233, .5);
+		}
+		.main {
+			flex: 1;
+		}
+		.content {
+			flex: 1;
+			background: rgba(16, 142, 233, .7);
+		}
+		.aside {
+	    flex: 0 0 200px;
+			background: rgba(16, 142, 233, 1);
+		}
+	</style>
+</head>
+<body>
+	<section class="container flex flex-direction">
+		<header></header>
+		<section class="main flex">
+			<aside class="aside"></aside>
+			<section class="content"></section>
+		</section>
+		<footer></footer>
+	</section>
+</body>
+</html>
